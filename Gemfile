@@ -46,3 +46,5 @@ group :test do
   gem "launchy", "~> 2.3.0"
   gem "selenium-webdriver", "~> 2.37.0"
 end
+
+gem 'omniauth-twitter'
