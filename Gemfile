@@ -32,14 +32,17 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+# cucumber-rails
+group :development, :test do
+  gem "rspec-rails", "~> 2.14.0"
+  gem "factory_girl_rails", "~> 4.3.0"
+end
 
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+group :test do
+  gem "faker", "~> 1.2.0"
+  gem "capybara", "~> 2.1.0"
+  gem 'cucumber-rails'
+  gem "database_cleaner", "~> 1.2.0"
+  gem "launchy", "~> 2.3.0"
+  gem "selenium-webdriver", "~> 2.37.0"
+end
