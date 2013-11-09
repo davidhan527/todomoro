@@ -6,6 +6,8 @@ gem 'rails', '4.0.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+gem 'pry'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -48,3 +50,4 @@ group :test do
 end
 
 gem 'omniauth-twitter'
+gem 'omniauth-github'
