@@ -2,6 +2,8 @@
 
 FactoryGirl.define do
   factory :pomodoro do
+    association :task
+    association :tag
     tomato 1
   end
 end

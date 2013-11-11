@@ -4,4 +4,5 @@ class Task < ActiveRecord::Base
   has_many :pomodoros
   has_many :tags, through: :pomodoros
 
+  validates :name, presence: true
 end

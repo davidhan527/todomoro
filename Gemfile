@@ -43,7 +43,7 @@ end
 group :test do
   gem "faker", "~> 1.2.0"
   gem "capybara", "~> 2.1.0"
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', :require => false
   gem "database_cleaner", "~> 1.2.0"
   gem "launchy", "~> 2.3.0"
   gem "selenium-webdriver", "~> 2.37.0"
