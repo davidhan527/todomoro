@@ -2,9 +2,13 @@ class Todomoro.Routers.Tasks extends Backbone.Router
   routes:
     '': 'index'
     'tasks/:id': 'show'
+
+  initialize: ->
+    @collection = new Todomoro.Collections.Tasks()
+    @collection.fetch()
                 
   index: ->
-    view = new Todomoro.Views.TasksIndex()
+    view = new Todomoro.Views.TasksIndex(collection: @collection)
     $('#container').html(view.render().el)
     # This will render the index.jst.eco template into our container div. 
 
