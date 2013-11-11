@@ -1,6 +1,6 @@
 Todomoro::Application.routes.draw do
 
-  root 'tomatoes#index'
+  root to: 'tomatoes#index'
 
   get "tomatoes/index"
 
