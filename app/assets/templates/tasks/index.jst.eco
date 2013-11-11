@@ -1,0 +1,5 @@
+<h1>Todomoro</h1>
+
+<%= @tasks %>
+
+<%# We want to render some dynamic content in our template and as it has an .eco extension the Eco templating engine is used to render it out. This behaves similarly to Erb and uses the same tags, but the code between the tags is CoffeeScript instead of Ruby. When we render the template from the view we can pass in an object with attributes and the template will be scoped to that object context. To demonstrate this we’ll add an entries attribute with some placeholder data. %>
