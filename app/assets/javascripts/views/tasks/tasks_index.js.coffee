@@ -6,14 +6,31 @@ class Todomoro.Views.TasksIndex extends Backbone.View
     'submit #new_entry': 'createEntry'
   initialize: ->
     @collection.on('sync', @render, this)
+    @collection.on('add', @render, this)
 
   render: ->
-    $(@el).html(@template(tasks: @collection))
+    $(@el).html(@template())
+    @collection.each(@appendTask)
     this
+
+  appendTask: (task) => 
+    view = new Todomoro.Views.Task(model: task)
+    @$('#tasks').append(view.render().el)
 
   createEntry: (event) ->
     event.preventDefault()
-    @collection.create name: $('#new_entry_name').val()
+    attributes = name: $('#new_entry_name').val()
+    @collection.create attributes,
+      wait: true
+      # waits for the server to response first before creating the entry so that we do not have empty lines appending to the task list
+      success: -> $('#new_entry')[0].reset()
+      error: @handleError
+
+  handleError: (task, response) ->
+    if response.status == 422
+      errors  = $.parseJSON(response.responseText).errors
+      for attribute, messages of errors
+        alert "#{attribute} #{message}" for message in messages
     # we can pass an object with attributes into @template()
 
 # To render a template we call @template() which renders the template and returns it as a string. Each view has a dedicated HTML element that we access by calling @el. By using some jQuery code we can set the contents of this element to by whatever is returned by the template. Finally this function needs to return this view so that we can chain other view functions on it and to do this we return this (as this is CoffeeScript we could also use @ but we’ll stick with this here).

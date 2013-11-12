@@ -1,15 +1,11 @@
-<h1>Todomoro</h1>
+<h1>ToDomoro</h1>
 
 <form id="new_entry">
   <input type="text" name="name" id="new_entry_name">
   <input type="submit" value="Add">
 </form>
 
-<ul>
-<% for task in @tasks.models: %>
-  <li><%= task.get('name') %></li>
-<% end %>
-</ul>
+<ul id="tasks"></ul>
 
 
 

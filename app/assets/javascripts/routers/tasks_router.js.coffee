@@ -5,7 +5,7 @@ class Todomoro.Routers.Tasks extends Backbone.Router
 
   initialize: ->
     @collection = new Todomoro.Collections.Tasks()
-    @collection.fetch()
+    @collection.reset($('#container').data 'tasks')
                 
   index: ->
     view = new Todomoro.Views.TasksIndex(collection: @collection)
