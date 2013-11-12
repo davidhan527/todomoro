@@ -10,7 +10,10 @@ class TasksController < ApplicationController
   end
   
   def create
-    respond_with Task.create(task_params)
+    task = Task.create(task_params)
+    current_user.tasks << task
+    respond_with task
+    # current_user << task
   end
   
   def update
