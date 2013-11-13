@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require underscore
 //= require backbone
 //= require todomoro
@@ -22,3 +23,5 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree .
+
+$(document).foundation();

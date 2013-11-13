@@ -1,15 +1,21 @@
-<h1>ToDomoro</h1>
-<div id="countdown_container">
-  <div id="countdown"></div>
-  <button id="reset">Reset</button>
+<div class="row">
+  
+  <h1>ToDomoro</h1>
+
+  <div id="countdown_container">
+    <div id="countdown"></div>
+    <button id="reset" class="button radius small">Reset</button>
+  </div>
+
+  <div>
+    <form id="new_entry">
+      <input type="text" name="name" id="new_entry_name">
+      <input type="submit" value="Add">
+    </form>
+
+    <ul id="tasks" class="large-6 columns small-centered"></ul>
+  </div>
 </div>
-<form id="new_entry">
-  <input type="text" name="name" id="new_entry_name">
-  <input type="submit" value="Add">
-</form>
-
-<ul id="tasks"></ul>
-
 
 
 <!-- The entries collection isn’t a simple array and so we have to call models on it to get an array of models. Note that it’s necessary to put a colon at the end of this line in Eco as it doesn’t use significant whitespace -->
