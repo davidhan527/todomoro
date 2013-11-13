@@ -13,6 +13,10 @@ Todomoro::Application.routes.draw do
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
   get 'auth/failure', to: redirect('/')
+
+  post 'tasks/:id/create', to: 'tasks#pomodorocreate'
+
+  post 'tasks/:id/count', to: 'tasks#pomodorocount'
   
   # auth failure route does not work on development but only in production
 end

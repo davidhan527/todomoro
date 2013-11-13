@@ -1,5 +1,8 @@
 <h1>ToDomoro</h1>
 
+<button id="start">Start</button>
+<div id="countdown"></div>
+
 <form id="new_entry">
   <input type="text" name="name" id="new_entry_name">
   <input type="submit" value="Add">

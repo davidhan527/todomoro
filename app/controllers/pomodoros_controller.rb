@@ -1,4 +1,4 @@
-class TasksController < ApplicationController
+class PomodorosController < ApplicationController
   respond_to :json
   
   def index
@@ -6,13 +6,14 @@ class TasksController < ApplicationController
   end
   
   def show
-    respond_with Task.find(params[:id]).pomodoros
+    respond_with Task.find(params[:id])
   end
 
   def create
     task = Task.create(task_params)
     current_user.tasks << task
     respond_with task
+    # current_user << task
   end
   
   def update
@@ -21,17 +22,6 @@ class TasksController < ApplicationController
   
   def destroy
     respond_with Task.destroy(params[:id])
-  end
-
-  def pomodorocreate
-    pomodoro = Task.find(params[:id]).pomodoros.create
-    count = Task.find(params[:id]).pomodoros.count
-    render :json => {count: count}
-  end
-
-  def pomodorocount
-    count = Task.find(params[:id]).pomodoros.count
-    render :json => {count: count}
   end
 
   private
