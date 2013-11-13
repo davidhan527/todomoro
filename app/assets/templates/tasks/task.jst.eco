@@ -1,5 +1,5 @@
 <div class="task_li">
 <span id= <%= "task_#{@task.get('id')}" %>></span>
-<%= @task.get('name') %>
+<span><%= @task.get('name') %></span>
 <button class="start">Start</button>
 </div>
