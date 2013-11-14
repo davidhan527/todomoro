@@ -28,7 +28,7 @@ class Todomoro.Views.Task extends Backbone.View
   startTimer: () ->
     bb_var.id = @model.get('id')
     console.log("[  ] =", bb_var.id );
-    timer_start(25)
+    timer_start(.1)
     $('#countdown_container').foundation('reveal', 'open');
 
   delete_task: ->

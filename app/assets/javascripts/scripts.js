@@ -61,7 +61,7 @@ $(document).ready(function() {
         $countdown.html(minutes + ":" + seconds);
       }
       if (minutes == 0 && seconds == 0) {
-        if (initial_timer == 25) {
+        if (initial_timer == .1) {
           alert("Pomodoro complete! Take a 5 min break");
           task_complete();
           clearInterval(progress_timer);
@@ -77,7 +77,7 @@ $(document).ready(function() {
     // Progress_bar
     var prg = 0;
     var prog;
-      if (initial_timer == 25) {
+      if (initial_timer == .1) {
         progress_timer = setInterval(function () {
           prg += 0.069;
           prog = prg + '%';
