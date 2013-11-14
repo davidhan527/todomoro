@@ -33,6 +33,11 @@
       <% end %>
     </div>
   </div>
+  <div id="stats" class='row'>
+    <div class="panel large-1 columns right stat"><h6 class="subheader">Month</h6><p><%= current_user.pomodoros.where(:created_at => 1.month.ago...Time.now).count %></p></div>
+    <div class="panel large-1 columns right stat"><h6 class="subheader">Week</h6><p><%= current_user.pomodoros.where(:created_at => 1.week.ago...Time.now).count %></p></div>
+    <div class="panel large-1 columns right stat"><h6 class="subheader">Day</h6><p><%= current_user.pomodoros.where(:created_at => 1.day.ago...Time.now).count %></p></div>
+  </div>
     <%= yield %>
   <div id="countdown_container" class="reveal-modal medium">
     <div id="progress_bar" class="nice round progress alert large-10"><span class="meter" style="width:0%"></span></div>
@@ -44,34 +49,3 @@
     <%= javascript_include_tag "application" %>
   </body>
 </html>
-
-<!-- insert  app/assets/javascripts/application.js
-append  app/assets/javascripts/application.js
-create  app/assets/stylesheets/foundation_and_overrides.scss
-append  app/assets/stylesheets/foundation_and_overrides.scss
-append  app/assets/stylesheets/application.css
-conflict  app/views/layouts/application.html.erb
-Overwrite /Users/davidhan/Documents/ga_wdi/projects/todomoro/app/views/layouts/application.html.erb? (enter "h" for help) [Ynaqdh] y
- force  app/views/layouts/application.html.erb
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Todomoro</title>
-  <%= stylesheet_link_tag    "application", media: "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<div id="user_nav">
-  <% if current_user %>
-    Signed in as <%= current_user.name %>
-    <%= link_to "Sign out", signout_path %>
-  <% else %>
-    <%= link_to "Sign in with Twitter", "/auth/twitter"%>
-    <%= link_to "Sign in with Github", "/auth/github"%>
-  <% end %>
-</div>
-<%= yield %>
-
-</body>
-</html> -->
