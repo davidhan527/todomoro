@@ -34,9 +34,10 @@
     </div>
   </div>
   <div id="stats" class='row'>
-    <div class="panel large-1 columns right stat"><h6 class="subheader">Month</h6><p><%= current_user.pomodoros.where(:created_at => 1.month.ago...Time.now).count %></p></div>
-    <div class="panel large-1 columns right stat"><h6 class="subheader">Week</h6><p><%= current_user.pomodoros.where(:created_at => 1.week.ago...Time.now).count %></p></div>
-    <div class="panel large-1 columns right stat"><h6 class="subheader">Day</h6><p><%= current_user.pomodoros.where(:created_at => 1.day.ago...Time.now).count %></p></div>
+    <div class="panel large-1 columns right stat"><h6 class="subheader">Month</h6><p class="stat_text"><%= current_user ? current_user.pomodoros.where(:created_at => 1.month.ago...Time.now).count : 0 %></p></div>
+    <div class="panel large-1 columns right stat"><h6 class="subheader">Week</h6><p class="stat_text"><%= current_user ? current_user.pomodoros.where(:created_at => 1.week.ago...Time.now).count : 0 %></p></div>
+    <div class="panel large-1 column
+    s right stat"><h6 class="subheader">Day</h6><p class="stat_text"><%= current_user ? current_user.pomodoros.where(:created_at => 1.day.ago...Time.now).count : 0 %></p></div>
   </div>
     <%= yield %>
   <div id="countdown_container" class="reveal-modal medium">
