@@ -6,6 +6,14 @@
 li {
   list-style: none;
 }
+
+#joyRideTipContent { 
+  display: none; 
+}
+.joyRideTipContent { 
+  display: none; 
+}
+
 //////////////////////HEADING/////////////////////
 #user_nav {
   margin-top: 10px;
@@ -21,7 +29,8 @@ li {
 
 .stat {
   padding: 8px 18px;
-  margin: 0 2px;
+  margin: 30px 2px 0;
+
 }
 
 .stat_text {
@@ -34,6 +43,10 @@ li {
 }
 
 //////////////////////TASKS/////////////////////
+#container {
+  margin-top: 45px;
+}
+
 #new_entry_name {
   display: inline;
   width: 78%;

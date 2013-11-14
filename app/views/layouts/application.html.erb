@@ -24,6 +24,7 @@
     <!-- Pomodoro.where(:created_at => 1.day.ago...Time.now).count-->
   <div class="row">
     <div id="user_nav" class="right">
+
       <% if current_user %>
         Signed in as <%= current_user.name %>
         <%= link_to "Sign out", signout_path %>
@@ -32,8 +33,10 @@
         <%= link_to "Sign in with Github", "/auth/github"%>
       <% end %>
     </div>
+
   </div>
   <div id="stats" class='row'>
+      <h1 id="todomoro firstStop" class="left">ToDomoro</h1>
     <div class="panel large-1 columns right stat"><h6 class="subheader">Month</h6><p class="stat_text"><%= current_user ? current_user.pomodoros.where(:created_at => 1.month.ago...Time.now).count : 0 %></p></div>
     <div class="panel large-1 columns right stat"><h6 class="subheader">Week</h6><p class="stat_text"><%= current_user ? current_user.pomodoros.where(:created_at => 1.week.ago...Time.now).count : 0 %></p></div>
     <div class="panel large-1 column
@@ -46,7 +49,25 @@
     <button id="reset" class="button radius small">Reset</button>
     <a class="close-reveal-modal"><!--&#215;--></a>
   </div>
-    
+
     <%= javascript_include_tag "application" %>
+      <!-- JOYRIDE -->
+<!--   <ol id="joyRideTipContent" class="joyRideTipContent" data-joyride>
+    <li data-id="firstStop" data-text="Next">
+      <p>Hello and welcome to Todomoro!</p>
+    </li>
+    <li data-id="numero1" data-class="custom so-awesome" data-text="Next">
+      <h4>Add Tasks</h4>
+      <p>Add a Task and hit the start button to begin your Pomodoro Timer</p>
+    </li>
+    <li data-id="numero2" data-button="Next">
+      <h4>Get Pomodoros!</h4>
+      <p>To acquire a pomodoro work on your task for the 25 minute period. If you reset the timer at any point your pomodoro will be lost.</p>
+    </li>
+    <li data-button="End">
+      <h4>Make sure to take breaks</h4>
+      <p>At the end of every 25 minute sprint take a 5 minute break before you start your next task.</p>
+    </li>
+  </ol> -->
   </body>
 </html>
