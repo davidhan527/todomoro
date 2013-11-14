@@ -39,9 +39,7 @@ class Todomoro.Views.Task extends Backbone.View
           console.log response
           console.log model
 
-
   remove: ->
     @$el.remove();
 
 
-# $("#myModal").reveal({ "closed": function () { alert("Good bye") } });

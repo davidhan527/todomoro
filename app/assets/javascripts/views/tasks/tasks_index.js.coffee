@@ -25,7 +25,7 @@ class Todomoro.Views.TasksIndex extends Backbone.View
       success: (data, textStatus, jqXHR) ->
         testobject.data = data
         $('#task_'+id).html(data.count)
-
+        $('li').sort(sortEm).prependTo($('ul#tasks'))
 
 ########################click events#############################
   createEntry: (event) ->

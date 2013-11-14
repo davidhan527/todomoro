@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.name = auth["info"]["nickname"]
-      # for other providers besides twitter, we need to verify what the omniauth.auth hash is passing as the key value. It may de different from ["info"]["nickname"], and etc. 
+      # for other providers besides twitter, we need to verify what the omniauth.auth hash is passing as the key value. It may de different from ["info"]["nickname"], and etc.
     end
   end
 

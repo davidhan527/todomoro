@@ -16,3 +16,4 @@
 
 <!-- The entries collection isn’t a simple array and so we have to call models on it to get an array of models. Note that it’s necessary to put a colon at the end of this line in Eco as it doesn’t use significant whitespace -->
 
+<!-- Pomodoro.where(:created_at => 1.day.ago...Time.now).count -->

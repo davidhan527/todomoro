@@ -3,6 +3,7 @@ var bb_var = {};
 var model_id;
 var timer = 0;
 var progress_timer = 0;
+var sortEm;
 
 var are_you_sure = function() {
   if(confirm("Are you sure?")){
@@ -102,10 +103,10 @@ $(document).ready(function() {
       $('.meter').width('0%');
   });
   
-  function sortEm(a,b){
+  sortEm = function(a,b) {
   return parseInt($('span.label', a).text()) < parseInt($('.label', b).text()) ? 1 : -1;
-}
-  $('li').sort(sortEm).prependTo($('ul#tasks'));
+  }
+  
 });
 
 // var modWidth = 50;
