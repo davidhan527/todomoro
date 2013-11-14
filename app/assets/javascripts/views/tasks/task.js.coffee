@@ -10,7 +10,7 @@ class Todomoro.Views.Task extends Backbone.View
   events:
     # 'click': 'showTask'
     'click .start': 'startTimer'
-    'click .fa-trash-o': 'delete_task'
+    'click .fa-stack': 'delete_task'
 
   # showTask: ->
   #   id = @model.get('id')

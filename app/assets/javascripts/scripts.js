@@ -101,7 +101,12 @@ $(document).ready(function() {
       clearInterval(progress_timer);
       $('.meter').width('0%');
   });
+  
+  function sortEm(a,b){
+  return parseInt($('span.label', a).text()) < parseInt($('span.label', b).text()) ? 1 : -1;
+}
 
+  $('li').sort(sortEm).prependTo($('ul#tasks'));
 });
 
 // var modWidth = 50;
