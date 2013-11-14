@@ -103,9 +103,8 @@ $(document).ready(function() {
   });
   
   function sortEm(a,b){
-  return parseInt($('span.label', a).text()) < parseInt($('span.label', b).text()) ? 1 : -1;
+  return parseInt($('span.label', a).text()) < parseInt($('.label', b).text()) ? 1 : -1;
 }
-
   $('li').sort(sortEm).prependTo($('ul#tasks'));
 });
 
