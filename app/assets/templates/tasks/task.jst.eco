@@ -1,5 +1,8 @@
 <div class="task_li">
 <span class="label" id= <%= "task_#{@task.get('id')}" %>></span>
 <span><%= @task.get('name') %></span>
-<button class="start button tiny right radius">Start</button>
+<button class="start button tiny right radius" >Start</button>
+<a><i class="fa fa-trash-o fa-lg right"></i></a>
 </div>
+
+<!-- data-reveal-id="countdown_container" -->

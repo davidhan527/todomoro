@@ -2,8 +2,33 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//////////////////////GLOBAL/////////////////////
 li {
   list-style: none;
+}
+//////////////////////HEADING/////////////////////
+#user_nav {
+  margin-top: 10px;
+}
+
+#todomoro {
+  margin-top: 30px;
+}
+
+
+//////////////////////COUNTDOWN/////////////////////
+#countdown {
+  text-align: center;
+  font-size: 100px;
+}
+
+
+
+//////////////////////TASKS/////////////////////
+#new_entry_name {
+  display: inline;
+  width: 78%;
+  margin-right: 9%;
 }
 
 .task_li {
@@ -14,6 +39,10 @@ li {
   width: 33px;
   border-radius: 5px;
   margin-right: 18px;
+}
+
+.fa-trash-o {
+  margin-right: 10px;
 }
 // body {
 //   // background-color: #4B7399;

@@ -21,17 +21,25 @@
   </head>
 
   <body>
-  <div id="user_nav">
-    <% if current_user %>
-      Signed in as <%= current_user.name %>
-      <%= link_to "Sign out", signout_path %>
-    <% else %>
-      <%= link_to "Sign in with Twitter", "/auth/twitter"%>
-      <%= link_to "Sign in with Github", "/auth/github"%>
-    <% end %>
+    <!-- Pomodoro.where(:created_at => 1.day.ago...Time.now).count-->
+  <div class="row">
+    <div id="user_nav" class="right">
+      <% if current_user %>
+        Signed in as <%= current_user.name %>
+        <%= link_to "Sign out", signout_path %>
+      <% else %>
+        <%= link_to "Sign in with Twitter", "/auth/twitter"%>
+        <%= link_to "Sign in with Github", "/auth/github"%>
+      <% end %>
+    </div>
   </div>
     <%= yield %>
-
+  <div id="countdown_container" class="reveal-modal medium">
+    <div id="progress_bar" class="nice round progress alert large-10"><span class="meter" style="width:0%"></span></div>
+    <h1 id="countdown" class="subheader"></h1>
+    <button id="reset" class="button radius small">Reset</button>
+    <a class="close-reveal-modal"><!--&#215;--></a>
+  </div>
     
     <%= javascript_include_tag "application" %>
   </body>

@@ -1,11 +1,13 @@
 var testobject = {};
 var bb_var = {};
-var timer, model_id;
+var model_id;
 var timer = 0;
+var progress_timer = 0;
 
 var are_you_sure = function() {
   if(confirm("Are you sure?")){
     reset();
+    $('a.close-reveal-modal').trigger('click');
   }
   else {
 
@@ -14,13 +16,13 @@ var are_you_sure = function() {
 
 var reset = function() {
   clearInterval(timer);
-  $('#countdown').html("25:00");
+  $('#countdown').html("00:00");
 };
 
 var task_complete = function() {
   clearInterval(timer);
-  $('#countdown').html("25:00")
-  console.log("[  ] =", bb_var.id );
+  $('#countdown').html("00:00");
+  console.log("[ bb_var.id ] =", bb_var.id );
   $.ajax("tasks/" + bb_var.id + "/create", {
     type: 'POST',
     dataType: 'json',
@@ -33,12 +35,14 @@ var task_complete = function() {
 
 $(document).ready(function() {
   var minutes, seconds;
+  
    
   // get tag element
   var countdown = document.getElementById("countdown");
 
   timer_start = function(minutes) {
-    var target_date = new Date(new Date().getTime() + (minutes*60000) + 2000);
+    var target_date = new Date(new Date().getTime() + (minutes*60000) + 1000);
+    var initial_timer = minutes;
     timer = setInterval(function () {
       // find the amount of "seconds" between now and target
       var current_date = new Date();
@@ -49,17 +53,59 @@ $(document).ready(function() {
       seconds = parseInt(seconds_left % 60);
 
       // format countdown string + set tag value
-      $countdown = $('#countdown')
+      $countdown = $('#countdown');
       if (seconds >= 0 && seconds < 10) {
-        $countdown.html(minutes + ":" +"0" + seconds)
+        $countdown.html(minutes + ":" +"0" + seconds);
       } else {
-        $countdown.html(minutes + ":" + seconds)
+        $countdown.html(minutes + ":" + seconds);
       }
       if (minutes == 0 && seconds == 0) {
-        alert("Take a 5 min break!");
-        task_complete();
+        if (initial_timer == 25) {
+          alert("Pomodoro complete! Take a 5 min break");
+          task_complete();
+          clearInterval(progress_timer);
+          $('.meter').width('0%');
+          timer_start(5);
+        } else {
+          console.log("[ elsestatment ] =");
+
+        }
+
       }
     }, 1000);
-
+    // Progress_bar
+    var prg = 0;
+    var prog;
+      if (initial_timer == 25) {
+        progress_timer = setInterval(function () {
+          prg += 0.069;
+          prog = prg + '%';
+          $('.meter').width(prog);
+        }, 1000);
+      }
   };
+
+  $('#reset').on('click', function(){
+    are_you_sure();
+  });
+
+  $(document).foundation().foundation('reveal', {
+     closeOnBackgroundClick: false,
+     animationSpeed: 1000
+  });
+  // $('#countdown_container').bind('opened', function() {
+
+  // });
+  $('#countdown_container').bind('closed',
+    function() {
+      clearInterval(progress_timer);
+      $('.meter').width('0%');
+  });
+
 });
+
+// var modWidth = 50;
+// $( "div" ).one( "click", function() {
+//   $( this ).width( modWidth ).addClass( "mod" );
+//   modWidth -= 8;
+// });

@@ -4,7 +4,6 @@ class Todomoro.Views.TasksIndex extends Backbone.View
 # This view has a template option set to tasks/index. This means that it will use the index template at/app/assets/javascripts/templates/tasks/index.jst.eco to render out the view. This template file is where the actual HTML code goes; the view just contains CoffeeScript. This might be a little confusing if you’re coming from Rails as the views in Backbone behave more like controllers in Rails, setting up data for the actual template and handling events. We need to tell the view how to render the template and we do so by using a render function.
   events:
     'submit #new_entry': 'createEntry'
-    'click #reset': 'resetTimer'
 
     
   initialize: ->
@@ -44,9 +43,6 @@ class Todomoro.Views.TasksIndex extends Backbone.View
       for attribute, messages of errors
         alert "#{attribute} #{message}" for message in messages
     # we can pass an object with attributes into @template()
-
-  resetTimer: ->
-    are_you_sure()
   
 
 
