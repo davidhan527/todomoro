@@ -1,17 +1,19 @@
 <div class="row">
-  
-  <div class="large-5 columns small-centered">
+  <div class="large-5 columns">
+    <h4 style="text-align: center">Tasks</h4>
     <form id="new_entry">
       <input type="text" name="name" id="new_entry_name">
       <input class="button tiny radius" type="submit" value="Add">
     </form>
-
+  
     <ul id="tasks"></ul>
   </div>
-
-
+  
+  <div class="large-5 columns">
+    <h4 style="text-align: center">Completed</h4>
+    <ul id="completed_true"></ul>
+  </div>
 </div>
-
 
 <!-- The entries collection isn’t a simple array and so we have to call models on it to get an array of models. Note that it’s necessary to put a colon at the end of this line in Eco as it doesn’t use significant whitespace -->
 

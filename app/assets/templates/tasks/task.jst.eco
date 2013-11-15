@@ -4,10 +4,11 @@
 <button class="start button tiny right radius" >Start</button>
 <!-- <a><i class="fa fa-trash-o fa-lg right"></i></a> -->
 <a class="right x-mark">
-  <span class="fa-stack fa-lg rigth">
+  <span class="fa-stack fa-lg right">
     <i class="fa fa-ban fa-stack-1x"></i>
     <i class="fa fa-ban fa-rotate-90 fa-stack-1x"></i>
   </span>
 </a>
+<input type="checkbox" class='right'>
 </div>
 

@@ -1,1 +1,4 @@
-<%= content_tag "div", "Loading...", id: "container", data: { tasks: current_user ? current_user.tasks.all : nil } %>
+<div class="row">
+  <%= content_tag "div", "Loading...", id: "container", class: "", data: { tasks: current_user ? current_user.tasks.all : nil } %>
+<div>
+

@@ -12,12 +12,17 @@ class Todomoro.Views.TasksIndex extends Backbone.View
 
   render: ->
     $(@el).html(@template())
+    console.log(@collection)
     @collection.each(@appendTask)
     this
 
   appendTask: (task) => 
     view = new Todomoro.Views.Task(model: task)
-    @$('#tasks').append(view.render().el)
+    if task.get('completed') == false
+      @$('#tasks').append(view.render().el)
+      console.log task.get('completed')
+    else if task.get('completed') == true
+      @$('#completed_true').append(view.render().el)
     id = task.get('id')
     $.ajax "tasks/"+id+"/count",
       type: 'POST'
@@ -25,7 +30,7 @@ class Todomoro.Views.TasksIndex extends Backbone.View
       success: (data, textStatus, jqXHR) ->
         testobject.data = data
         $('#task_'+id).html(data.count)
-        $('li').sort(sortEm).prependTo($('ul#tasks'))
+        # $('li').sort(sortEm).prependTo($('ul#tasks'))
 
 ########################click events#############################
   createEntry: (event) ->

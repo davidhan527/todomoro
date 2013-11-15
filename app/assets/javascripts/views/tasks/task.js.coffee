@@ -11,15 +11,7 @@ class Todomoro.Views.Task extends Backbone.View
     # 'click': 'showTask'
     'click .start': 'startTimer'
     'click .fa-stack': 'delete_task'
-
-  # showTask: ->
-  #   id = @model.get('id')
-  #   $.ajax "tasks/"+id+"/create",
-  #     type: 'POST'
-  #     dataType: 'json'
-  #     success: (data, textStatus, jqXHR) ->
-  #       testobject.data = data
-  #       $('#task_'+id).html(data.count)
+    'click [type="checkbox"]':'completed',
 
   render: ->
     $(@el).html(@template(task: @model))
@@ -36,10 +28,13 @@ class Todomoro.Views.Task extends Backbone.View
     if confirm("Are you sure?")
       @model.destroy
         success: (model, response) ->
-          console.log response
           console.log model
 
   remove: ->
     @$el.remove();
 
+  completed: ->
+    @model.set({'completed': true})
+    @model.save()
+    # $('#completed_tasks').append(@$el)
 
