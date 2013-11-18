@@ -67,11 +67,10 @@ $(document).ready(function() {
           clearInterval(progress_timer);
           $('.meter').width('0%');
           timer_start(5);
-        } else {
-          console.log("[ elsestatment ] =");
-
+        } else if (initial_timer == 5) {
+          reset();
+          $('a.close-reveal-modal').trigger('click');
         }
-
       }
     }, 1000);
     // Progress_bar
