@@ -76,7 +76,7 @@ $(document).ready(function() {
     // Progress_bar
     var prg = 0;
     var prog;
-      if (initial_timer == .1) {
+      if (initial_timer == 25) {
         progress_timer = setInterval(function () {
           prg += 0.069;
           prog = prg + '%';
