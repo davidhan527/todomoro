@@ -18,6 +18,6 @@ class Todomoro.Routers.Tasks extends Backbone.Router
 
     if a == 0 
       console.log 'abc'
-    else {
+    else 
 
-    }
+    
