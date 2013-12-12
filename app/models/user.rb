@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  validates :name, presence: true
 
   has_many :tasks
   has_many :pomodoros, through: :tasks
@@ -16,7 +17,5 @@ class User < ActiveRecord::Base
       # for other providers besides twitter, we need to verify what the omniauth.auth hash is passing as the key value. It may de different from ["info"]["nickname"], and etc.
     end
   end
-
-  validates :name, presence: true
-
+  
 end

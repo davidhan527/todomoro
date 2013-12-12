@@ -12,7 +12,6 @@ class Todomoro.Views.TasksIndex extends Backbone.View
 
   render: ->
     $(@el).html(@template())
-    console.log(@collection)
     @collection.each(@appendTask)
     this
 
@@ -20,7 +19,6 @@ class Todomoro.Views.TasksIndex extends Backbone.View
     view = new Todomoro.Views.Task(model: task)
     if task.get('completed') == false
       @$('#tasks').append(view.render().el)
-      console.log task.get('completed')
     else if task.get('completed') == true
       @$('#completed_true').append(view.render().el)
     id = task.get('id')

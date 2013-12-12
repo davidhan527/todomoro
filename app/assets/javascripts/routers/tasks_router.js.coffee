@@ -16,8 +16,4 @@ class Todomoro.Routers.Tasks extends Backbone.Router
     # view = new Todomoro.Views.
     alert "Task #{id}"
 
-    if a == 0 
-      console.log 'abc'
-    else 
-
     

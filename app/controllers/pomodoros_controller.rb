@@ -13,7 +13,6 @@ class PomodorosController < ApplicationController
     task = Task.create(task_params)
     current_user.tasks << task
     respond_with task
-    # current_user << task
   end
   
   def update

@@ -23,7 +23,6 @@ var reset = function() {
 var task_complete = function() {
   clearInterval(timer);
   $('#countdown').html("00:00");
-  console.log("[ bb_var.id ] =", bb_var.id );
   $.ajax("tasks/" + bb_var.id + "/create", {
     type: 'POST',
     dataType: 'json',
