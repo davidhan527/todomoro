@@ -92,9 +92,7 @@ $(document).ready(function() {
      closeOnBackgroundClick: false,
      animationSpeed: 1000
   });
-  // $('#countdown_container').bind('opened', function() {
 
-  // });
   $('#countdown_container').bind('closed',
     function() {
       clearInterval(progress_timer);
@@ -106,9 +104,3 @@ $(document).ready(function() {
   }
   
 });
-
-// var modWidth = 50;
-// $( "div" ).one( "click", function() {
-//   $( this ).width( modWidth ).addClass( "mod" );
-//   modWidth -= 8;
-// });
