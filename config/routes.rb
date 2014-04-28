@@ -18,5 +18,4 @@ Todomoro::Application.routes.draw do
 
   post 'tasks/:id/count', to: 'tasks#pomodorocount'
   
-  # auth failure route does not work on development but only in production
 end
