@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
-ruby '2.0.0'
+ruby '2.1.0'
 
 gem 'rails_12factor', group: :production
 
@@ -41,19 +41,18 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# cucumber-rails
 group :development, :test do
   gem "rspec-rails", "~> 2.14.0"
-  gem "factory_girl_rails", "~> 4.3.0"
+  gem "factory_girl_rails", "~> 4.2.1"
 end
 
 group :test do
-  gem "faker", "~> 1.2.0"
+  gem "faker", "~> 1.1.2"
   gem "capybara", "~> 2.1.0"
-  gem 'cucumber-rails', :require => false
-  gem "database_cleaner", "~> 1.2.0"
+  gem "database_cleaner", "~> 1.0.1"
   gem "launchy", "~> 2.3.0"
-  gem "selenium-webdriver", "~> 2.37.0"
+  gem "shoulda-matchers", "~> 2.2.0"
+  gem "selenium-webdriver", "~> 2.35.1"
 end
 
 gem 'omniauth-twitter'
